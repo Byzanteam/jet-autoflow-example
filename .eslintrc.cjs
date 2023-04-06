@@ -21,5 +21,5 @@ module.exports = {
           'this project use tailwind, do not use <style> block in this project',
       },
     ],
-  }
+  },
 }

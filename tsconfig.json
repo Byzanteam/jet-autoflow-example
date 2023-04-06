@@ -4,16 +4,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
   "include": [
-    ".jet/**/*.d.ts",
+    ".typings/**/*.d.ts",
     "src/**/*.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
