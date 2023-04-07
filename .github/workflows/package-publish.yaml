@@ -19,3 +19,17 @@ jobs:
           package_file: package.json
         id: get-app-info
 
+      - name: Login to Aliyun registry
+        uses: docker/login-action@v2
+        with:
+          registry: registry.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.ALIYUN_ID }}
+          password: ${{ secrets.ALIYUN_KEY }}
+
+      - name: Login to Github registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
