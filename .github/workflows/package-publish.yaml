@@ -33,3 +33,19 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./deploy/Dockerfile
+          push: true
+          tags: |
+            registry.cn-hangzhou.aliyuncs.com/jet/${{ steps.get-app-info.outputs.name }}:${{ steps.get-app-info.outputs.version }}
+            ghcr.io/byzanteam/${{ steps.get-app-info.outputs.name }}:${{ steps.get-app-info.outputs.version }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
