@@ -1,8 +1,7 @@
 name: Release Docker image for the app
 
 on:
-  release:
-    types: [published]
+  pull_request:
 
 jobs:
   build-and-push-image:
@@ -12,6 +11,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build and push
-      uses: byzanteam/jet-actions/fe-build-image@main
+      uses: byzanteam/jet-actions/fe-build-image@chore/yangke/package-ali-github
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        aliyun_id: ${{ secrets.ALIYUN_ID }}
+        aliyun_key: ${{ secrets.ALIYUN_KEY }}
+        aliyun_namespace: jet
+

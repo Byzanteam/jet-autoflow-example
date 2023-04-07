@@ -1,7 +1,8 @@
 name: "build push aliyun"
 
 on:
-  pull_request:
+  release:
+    types: [published]
 
 jobs:
   package-publish:
