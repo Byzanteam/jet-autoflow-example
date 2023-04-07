@@ -1,0 +1,24 @@
+name: "upgrade by docker compose"
+
+on:
+  pull_request:
+
+jobs:
+  compose-upgrade:
+    runs-on: self-hosted
+    steps:
+      - name: Get APP Info
+        uses: byzanteam/jet-actions/fe-get-app-info@main
+        with:
+          package_file: package.json
+        id: get-app-info
+
+      - name: upgrade by compose
+        uses: byzanteam/jet-actions/deploy@feat/yangke/docker-compose-upgrade
+        with:
+          deploy-host: 10.64.0.32
+          deploy-user: root
+          deploy-to: /opt/test-app
+          private-key: ${{ secrets.DEPLOYMENT_KEY }}
+          image_name: ${{ steps.get-app-info.outputs.name }}
+          image_version: ${{ steps.get-app-info.outputs.version }}
