@@ -1,11 +1,14 @@
-name: "Upgrade by docker compose"
+name: Upgrade by docker compose
 
 on:
-  pull_request:
+  workflow_run:
+    workflows: ["Release Docker image for the app"]
+    types:
+      - completed
 
 jobs:
   compose-upgrade:
-    runs-on: image-builder
+    runs-on: jet
     steps:
       - name: Get APP Info
         uses: byzanteam/jet-actions/fe-get-app-info@main
