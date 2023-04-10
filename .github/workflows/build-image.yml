@@ -13,8 +13,8 @@ jobs:
     - name: Build and push
       uses: byzanteam/jet-actions/fe-build-image@chore/yangke/package-ali-github
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        aliyun_id: ${{ secrets.ALIYUN_ID }}
-        aliyun_key: ${{ secrets.ALIYUN_KEY }}
-        aliyun_namespace: jet
+        registries_key: ${{ secrets.GITHUB_TOKEN }}, ${{ secrets.ALIYUN_KEY }}
+        registries_username: ${{ github.repository_owner }}, ${{ secrets.ALIYUN_ID }}
+        registries: ghcr.io, registry.cn-hangzhou.aliyuncs.com
+        registries_namespace: byzanteam, jet
 
