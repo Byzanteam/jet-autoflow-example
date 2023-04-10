@@ -2,9 +2,12 @@ name: Upgrade by docker compose
 
 on:
   workflow_run:
-    workflows: ["Release Docker image for the app"]
+    workflows: [Release Docker image for the app]
     types:
       - completed
+    branches:
+      - 'feat/**'
+  workflow_dispatch:
 
 jobs:
   compose-upgrade:
