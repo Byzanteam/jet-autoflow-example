@@ -1,14 +1,9 @@
 name: Upgrade by docker compose
 
 on:
-  workflow_run:
-    workflows: [Release Docker image for the app]
-    types:
-      - completed
+  pull_request:
     branches:
-      - 'feat/**'
-  workflow_dispatch:
-
+      - main
 jobs:
   compose-upgrade:
     runs-on: jet
