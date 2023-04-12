@@ -8,13 +8,12 @@ jobs:
     runs-on: image-builder
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Build and push
       uses: byzanteam/jet-actions/fe-build-image@chore/yangke/package-ali-github
       with:
-        registries_key: ${{ secrets.GITHUB_TOKEN }}, ${{ secrets.ALIYUN_KEY }}
-        registries_username: ${{ github.repository_owner }}, ${{ secrets.ALIYUN_ID }}
-        registries: ghcr.io, registry.cn-hangzhou.aliyuncs.com
-        registries_namespace: byzanteam, jet
+        registries: |
+          ghcr.io,byzanteam,${{ github.repository_owner }},${{ secrets.PACKAGE_KEY }}
+          registry.cn-hangzhou.aliyuncs.com,jet,${{ secrets.ALIYUN_ID }},${{ secrets.ALIYUN_KEY }}
 
