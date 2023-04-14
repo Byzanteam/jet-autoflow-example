@@ -16,5 +16,4 @@ jobs:
         registries: |-
           ghcr.io,byzanteam,${{ github.repository_owner }},${{ secrets.PACKAGE_KEY }}
           registry.cn-hangzhou.aliyuncs.com,jet,${{ secrets.ALIYUN_ID }},${{ secrets.ALIYUN_KEY }}
-        cache_dir: /tmp/.buildx-cache
-
+        cache_type: local
