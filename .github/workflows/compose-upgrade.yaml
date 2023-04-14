@@ -16,4 +16,4 @@ jobs:
           docker_compose_file_path: /opt/test-app/docker-compose.yml
           private_key: ${{ secrets.DEPLOYMENT_KEY }}
           service_name: jet-autoflow-example
-          image_tag: registry.cn-hangzhou.aliyuncs.com/jet/jet-autoflow-example:sha-0e9577d
+          image_tag: registry.cn-hangzhou.aliyuncs.com/jet/jet-autoflow-example:pr-1
