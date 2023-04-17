@@ -9,8 +9,7 @@ jobs:
     runs-on: jet
     steps:
       - name: upgrade by compose
-        uses: byzanteam/jet-actions/compose-upgrade@feat/yangke/docker-compose-upgrade
-        with:
+        uses: byzanteam/jet-actions/compose-upgrade@main
           host: 10.64.0.32
           user: root
           docker_compose_file_path: /opt/test-app/docker-compose.yml
