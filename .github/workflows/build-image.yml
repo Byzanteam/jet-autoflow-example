@@ -6,12 +6,15 @@ on:
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: image-builder
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Build and push
       uses: byzanteam/jet-actions/fe-build-image@main
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        registries: |-
+          ${{ secrets.ALIYUN_SKYLARK_REGISTRY }}
+          ghcr.io,byzanteam,${{ github.repository_owner }},${{ github.token }}
+        cache_type: local
