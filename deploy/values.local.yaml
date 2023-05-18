@@ -1,0 +1,17 @@
+nameOverride: jet-autoflow-example
+fullnameOverride: jet-autoflow-example-chart
+
+image:
+  repository: registry.cn-hangzhou.aliyuncs.com/skylark/jet-autoflow-example
+  pullPolicy: IfNotPresent
+  tag: ""
+
+applicationHosts:
+  - example.apps.jet.work
+
+appIngressroute:
+  - name: example
+    path: /
+
+applicationTLS:
+  certResolver: jet

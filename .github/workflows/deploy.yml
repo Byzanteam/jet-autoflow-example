@@ -1,0 +1,19 @@
+name: Deploy this application to remote host
+
+on:
+  registry_package:
+    types: [published]
+
+
+jobs:
+  deploy:
+    runs-on: jet
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: front deploy
+        uses: byzanteam/jet-actions/deploy-frontend-application@main
+        with:
+          image_tag: "latest"
+          private_key: ${{ secrets.SSH_KEY }}
