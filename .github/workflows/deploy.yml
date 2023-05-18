@@ -1,0 +1,28 @@
+name: Deploy this application to remote host
+
+on:
+  registry_package:
+    types: [published]
+  pull_request:
+    types:
+      - labeled
+
+
+jobs:
+  deploy:
+    runs-on: jet
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: front deploy
+        uses: byzanteam/jet-actions/front-deploy@feat/yangke/front-deploy
+        with:
+          values_file: "./deploy/example.values.yaml"
+          release_name: official-website
+          image_tag: "latest"
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USER }}
+          port: 22
+          private_key: ${{ secrets.SSH_KEY }}
+          repository_password: ${{ secrets.REPOSITORY_PASSWORD }}

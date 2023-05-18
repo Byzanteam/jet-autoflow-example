@@ -1,0 +1,23 @@
+nameOverride: example
+fullnameOverride: example-chart
+
+image:
+  repository: registry.cn-hangzhou.aliyuncs.com/skylark/jet-autoflow-example
+  pullPolicy: IfNotPresent
+  tag: ""
+
+imageCredentials:
+  registry: registry.cn-hangzhou.aliyuncs.com
+  username: deploy-man@skylark
+  password: changeit
+  email: dev@byzan.team
+
+applicationHosts:
+  - example.official.jet.work
+
+appIngressroute:
+  - name: example
+    path: /
+
+applicationTLS:
+  certResolver: jet
