@@ -1,3 +1,6 @@
+nameOverride: jet-autoflow-example
+fullnameOverride: jet-autoflow-example-chart
+
 image:
   repository: registry.cn-hangzhou.aliyuncs.com/skylark/jet-autoflow-example
   pullPolicy: IfNotPresent
