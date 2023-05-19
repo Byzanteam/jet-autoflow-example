@@ -21,3 +21,4 @@ jobs:
           values_file: "./deploy/example.values.yaml"
           image_tag: "latest"
           private_key: ${{ secrets.SSH_KEY }}
+          release_name: example

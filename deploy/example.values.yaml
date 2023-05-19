@@ -1,6 +1,3 @@
-nameOverride: example
-fullnameOverride: example-chart
-
 image:
   repository: registry.cn-hangzhou.aliyuncs.com/skylark/jet-autoflow-example
   pullPolicy: IfNotPresent
