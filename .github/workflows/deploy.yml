@@ -3,6 +3,9 @@ name: Deploy this application to remote host
 on:
   registry_package:
     types: [published]
+  pull_request:
+    types:
+      - labeled
 
 
 jobs:
@@ -13,7 +16,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: front deploy
-        uses: byzanteam/jet-actions/deploy-frontend-application@main
+        id: url
+        uses: byzanteam/jet-actions/deploy-frontend-application@feat/yangke/front-deploy
         with:
           image_tag: "latest"
           private_key: ${{ secrets.SSH_KEY }}
+          namespace: test
+
+       - name: get url
+         run: echo ${{ steps.url.outputs.public_url }}
