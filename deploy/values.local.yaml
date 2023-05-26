@@ -1,5 +1,6 @@
 nameOverride: jet-autoflow-example
 fullnameOverride: jet-autoflow-example-chart
+namespace: test
 
 image:
   repository: registry.cn-hangzhou.aliyuncs.com/skylark/jet-autoflow-example
