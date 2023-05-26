@@ -21,6 +21,6 @@ jobs:
         with:
           image_tag: "latest"
           private_key: ${{ secrets.SSH_KEY }}
-          namespace: test
+          namespace: dev
 
       - run: echo ${{ steps.app-url.outputs.public_url }}
