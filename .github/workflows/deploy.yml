@@ -23,5 +23,4 @@ jobs:
           private_key: ${{ secrets.SSH_KEY }}
           namespace: test
 
-      - run: echo "access url: ${{ steps.app-url.outputs.public_url }}"
-        shell: bash
+      - run: echo ${{ steps.app-url.outputs.public_url }}
