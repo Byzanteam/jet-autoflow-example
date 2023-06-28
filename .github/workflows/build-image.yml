@@ -15,3 +15,4 @@ jobs:
       uses: byzanteam/jet-actions/fe-build-image@main
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        image_name: jet-autoflow-test
