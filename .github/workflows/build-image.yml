@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: image-builder
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -14,5 +14,5 @@ jobs:
     - name: Build and push
       uses: byzanteam/jet-actions/fe-build-image@main
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
         image_name: jet-autoflow-test
+        cache_type: local
