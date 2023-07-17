@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build and push
-      uses: byzanteam/jet-actions/fe-build-image@fix/yangke/image-name-miss
+      uses: byzanteam/jet-actions/fe-build-image@main
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         image_name: jet-autoflow-test
