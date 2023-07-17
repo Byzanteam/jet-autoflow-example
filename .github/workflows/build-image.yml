@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-and-push-image:
-    runs-on: image-builder
+    runs-on: jet
     steps:
     - name: Checkout
       uses: actions/checkout@v2
