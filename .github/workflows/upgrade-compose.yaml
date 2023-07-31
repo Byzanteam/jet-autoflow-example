@@ -2,7 +2,6 @@ name: Upgrade by compose
 
 on:
   registry_package:
-    types: [published, updated]
 
 jobs:
   build-and-push-image:
