@@ -14,5 +14,7 @@ jobs:
     - name: Build and push
       uses: byzanteam/jet-actions/fe-build-image@main
       with:
-        image_name: jet-autoflow-test
+        registries: |-
+          ${{ secrets.ALIYUN_SKYLARK_REGISTRY }}
+          ghcr.io,byzanteam,${{ github.repository_owner }},${{ github.token }}
         cache_type: local
