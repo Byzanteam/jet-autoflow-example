@@ -1,0 +1,45 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - test/shaddollxz/publish-action
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.1.0
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@main
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        id: use-pnpm-cache # use this to check for `cache-hit` (`steps.pnpm-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-
+
+      - run: pnpm install --no-frozen-lockfile
+      - uses: changesets/action@v1
+        with:
+          publish: pnpm changeset publish
+          commit: 'chore: version update'
+          title: 'Chore/changesets/version-update'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 如需发布到 npm 需要在 github 上配置以下两项
+          # NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          # NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
