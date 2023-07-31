@@ -14,7 +14,7 @@ jobs:
         host: 10.64.0.28
         user: root
         docker_compose_file_path: /opt/fe-apps/docker-compose.yml
-        private_key: ${{ secrets.DEPLOYMENT_KEY }}
+        private_key: ${{ secrets.SSH_KEY }}
         service_name: jet-autoflow-example
         image: "registry.cn-hangzhou.aliyuncs.com/skylark/jet-autoflow-example:0.1.1"
 
