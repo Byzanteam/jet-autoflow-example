@@ -1,4 +1,4 @@
-name: Release Docker image for the app
+name: Upgrade by compose
 
 on:
   registry_package:
