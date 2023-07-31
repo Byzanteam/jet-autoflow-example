@@ -1,0 +1,20 @@
+name: Release Docker image for the app
+
+on:
+  registry_package:
+    types: [published, updated]
+
+jobs:
+  build-and-push-image:
+    runs-on: jet
+    steps:
+    - name: Upgraded by compose
+      uses: byzanteam/jet-actions/compose-upgrade@fix/yangke/file-blank
+      with:
+        host: 10.64.0.28
+        user: root
+        docker_compose_file_path: /data/fe-apps/docker-compose.yml
+        private_key: ${{ secrets.DEPLOYMENT_KEY }}
+        service_name: jet-autoflow-example
+        image: "registry.cn-hangzhou.aliyuncs.com/skylark/jet-autoflow-example:0.1.1"
+
