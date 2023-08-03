@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@main
         with:
-          node-version: 14
+          node-version: 18
           registry-url: https://registry.npmjs.org/
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -42,5 +42,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # 如需发布到 npm 需要在 github 上配置以下两项
-          # NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          # NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
