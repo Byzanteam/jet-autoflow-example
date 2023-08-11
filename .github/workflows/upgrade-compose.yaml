@@ -9,7 +9,7 @@ jobs:
     runs-on: jet
     steps:
     - name: Upgraded by compose
-      uses: byzanteam/jet-actions/compose-upgrade@fix/yangke/file-blank
+      uses: byzanteam/jet-actions/compose-upgrade@feat/yangke/non-root
       with:
         host: 10.64.0.28
         user: root
