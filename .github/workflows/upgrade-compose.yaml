@@ -12,7 +12,7 @@ jobs:
       uses: byzanteam/jet-actions/compose-upgrade@feat/yangke/non-root
       with:
         host: 10.64.0.28
-        user: root
+        user: jet-ops
         docker_compose_file_path: /opt/fe-apps/docker-compose.yml
         private_key: ${{ secrets.SSH_KEY }}
         service_name: jet-autoflow-example
