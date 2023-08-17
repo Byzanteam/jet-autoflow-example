@@ -15,6 +15,6 @@ jobs:
       uses: byzanteam/jet-actions/fe-build-image@main
       with:
         registries: |-
-          ${{ secrets.ALIYUN_SKYLARK_REGISTRY }}
+          ${{ secrets.ALIYUN_JET_REGISTRY }}
           ghcr.io,byzanteam,${{ github.repository_owner }},${{ github.token }}
         cache_type: local
