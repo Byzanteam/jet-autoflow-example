@@ -1,0 +1,15 @@
+name: Deploy to k8s
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-fe-app-k8s:
+    runs-on: jet
+    steps:
+      - name: deploy frontend application
+        uses: byzanteam/jet-actions/front-deploy@main
+        with:
+          image_tag: "0.0.11"
+          private_key: ${{ secrets.DEPLOYMENT_RUNNER_PRIVATE_KEY }}
+          namespace: test
