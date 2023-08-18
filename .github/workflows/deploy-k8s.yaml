@@ -1,10 +1,10 @@
 name: Deploy to k8s
 
 on:
-  registry_package:
-    action:
-      - published
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Release Docker image for the app"]
+    types:
+      - completed
 
 jobs:
   deploy-fe-app-k8s:
