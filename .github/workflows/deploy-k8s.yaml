@@ -14,8 +14,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: deploy frontend application
-        uses: byzanteam/jet-actions/deploy-frontend-application@chore/yangke/private-key
+        uses: byzanteam/jet-actions/deploy-frontend-application@main
         with:
-          image_tag: "0.0.11"
+          image_tag: "0.0.13"
           private_key: ${{ secrets.DEPLOYMENT_RUNNER_PRIVATE_KEY }}
           namespace: test
