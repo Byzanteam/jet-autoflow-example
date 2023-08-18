@@ -14,5 +14,5 @@ jobs:
         uses: byzanteam/jet-actions/deploy-frontend-application@chore/yangke/private-key
         with:
           image_tag: "0.0.11"
-          private_key: ${{ vars.SSH_KEY_VAR }}
+          private_key: ${{ secrets.DEPLOYMENT_RUNNER_PRIVATE_KEY }}
           namespace: test
