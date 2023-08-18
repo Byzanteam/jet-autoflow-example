@@ -8,7 +8,7 @@ jobs:
     runs-on: jet
     steps:
       - name: deploy frontend application
-        uses: byzanteam/jet-actions/front-deploy@main
+        uses: byzanteam/jet-actions/deploy-frontend-application@main
         with:
           image_tag: "0.0.11"
           private_key: ${{ secrets.DEPLOYMENT_RUNNER_PRIVATE_KEY }}
