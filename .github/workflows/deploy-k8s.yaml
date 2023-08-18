@@ -14,11 +14,5 @@ jobs:
         uses: byzanteam/jet-actions/deploy-frontend-application@main
         with:
           image_tag: "0.0.11"
-          private_key: "-----BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-QyNTUxOQAAACBOker9P00fGxKVeiG+10280Yz/I8Q7BS45W5J504+FtQAAAKAKiqZxCoqm
-cQAAAAtzc2gtZWQyNTUxOQAAACBOker9P00fGxKVeiG+10280Yz/I8Q7BS45W5J504+FtQ
-AAAEA1tiWfzSog+DXcwFBrxJiDgcV0bLEvBsZB9y8GcZQHOU6R6v0/TR8bEpV6Ib7XTbzR
-jP8jxDsFLjlbknnTj4W1AAAAGmdpdGh1Yi1kZXBsb3llckBrOHMtbWFzdGVyAQID
------END OPENSSH PRIVATE KEY-----"
+          private_key: ${{ vars.SSH_KEY_VAR }}
           namespace: test
