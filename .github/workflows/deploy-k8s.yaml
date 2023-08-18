@@ -13,11 +13,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-    - name: Get app info
-      id: fe-info
-      uses: byzanteam/jet-actions/fe-get-app-info@main
-      with:
-        package_file: package.json
+      - name: Get app info
+        id: fe-info
+        uses: byzanteam/jet-actions/fe-get-app-info@main
+        with:
+          package_file: package.json
 
       - name: deploy frontend application
         uses: byzanteam/jet-actions/deploy-frontend-application@main
