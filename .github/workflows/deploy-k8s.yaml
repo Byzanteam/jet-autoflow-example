@@ -1,0 +1,28 @@
+name: Deploy to k8s
+
+on:
+  workflow_run:
+    workflows: ["Release Docker image for the app"]
+    types:
+      - completed
+
+jobs:
+  deploy-fe-app-k8s:
+    runs-on: jet
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Get app info
+        id: fe-info
+        uses: byzanteam/jet-actions/fe-get-app-info@main
+        with:
+          package_file: package.json
+
+      - name: deploy frontend application
+        uses: byzanteam/jet-actions/deploy-frontend-application@main
+        with:
+          image_tag: ${{ steps.fe-info.outputs.version }}
+          release_name: ${{ steps.fe-info.outputs.name }}
+          private_key: ${{ secrets.DEPLOYMENT_RUNNER_PRIVATE_KEY }}
+          namespace: test
