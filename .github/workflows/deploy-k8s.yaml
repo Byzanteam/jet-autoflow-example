@@ -1,6 +1,9 @@
 name: Deploy to k8s
 
 on:
+  registry_package:
+    action:
+      - published
   workflow_dispatch:
 
 jobs:
