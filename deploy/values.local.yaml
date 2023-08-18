@@ -1,7 +1,7 @@
 namespace: test
 
 image:
-  repository: registry.cn-hangzhou.aliyuncs.com/skyalrk/jet-autoflow-example
+  repository: registry.cn-hangzhou.aliyuncs.com/skylark/jet-autoflow-example
 
 applicationHosts:
   - test.apps.jet.work
