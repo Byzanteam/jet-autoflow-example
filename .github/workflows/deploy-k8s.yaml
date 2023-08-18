@@ -1,6 +1,9 @@
 name: Deploy to k8s
 
 on:
+  registry_package:
+    action:
+      - published
   workflow_dispatch:
 
 jobs:
@@ -10,6 +13,6 @@ jobs:
       - name: deploy frontend application
         uses: byzanteam/jet-actions/deploy-frontend-application@main
         with:
-          image_tag: "0.0.11"
+          image_tag: "0.0.13"
           private_key: ${{ secrets.DEPLOYMENT_RUNNER_PRIVATE_KEY }}
           namespace: test
